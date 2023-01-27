@@ -5,7 +5,7 @@ function factorial(n) {
         return n*factorial(n-1)
     }
 }
-console.log(factorial(4));
+console.log(factorial(5));
 
 // function fcto2(n) {
 //     if (n==2) {
