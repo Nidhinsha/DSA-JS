@@ -58,4 +58,5 @@ class hashTable3 {
 
 const table3 = new hashTable3(50)
 table3.set("name","Roronova Zoro")
+table3.get('name')
 table3.display()
