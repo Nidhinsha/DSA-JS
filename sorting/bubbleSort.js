@@ -12,7 +12,11 @@ function bubbleSort(arr) {
    }
     
    }
-   console.log(arr);
+//    for (let i = 0; i < arr.length; i=i+2) {
+//     console.log(arr[i],'l');
+    
+//    }
+//    console.log(arr);
 }
 let arr = [6, 20, 8, 2, 4]
 console.log(arr);
