@@ -24,6 +24,29 @@ class hashTable4{
             }
         }
     }
+    get(key){
+        const index = this.hash(key)
+        const bucket = this.table4[index]
+        if (bucket) {
+            const sameKeyItem = bucket.find(item => item[0] === key)
+            if (sameKeyItem) {
+                return sameKeyItem[1]
+            }
+        }
+        return undefined
+    }
+    delete(){
+        const index = this.hash(key)
+        const bucket = this.table4[index]
+        if (bucket) {
+            const sameKeyItem = bucket.find(item => item[0] === key)
+            if (sameKeyItem) {
+                bucket.splice(bucket.indexOf(sameKeyItem,1))
+            }
+            this.table4[index] = undefined
+        }
+    }
+    
     display(){
         for (let i = 0; i < this.table.length; i++) {
            if (this.table[i]) {
