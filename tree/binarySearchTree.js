@@ -85,6 +85,16 @@ class BinarySearchTree{
             this.preOrder(root.right)
         }
     }
+    inOrder(root){
+        if (root) {
+            console.log(root.left,"@@@@@@@@@@@@@@@@@@@@ inOrder left");
+            this.inOrder(root.left)
+            console.log(root.value,"@@@@@@@@@@@@@@@@@@@@ inOrder root");
+            console.log(root.value);
+            console.log(root.right,"@@@@@@@@@@@@@@@@@@@@ inOrder right");
+            this.inOrder(root.right)
+        }
+    }
 }
 
 const treeSearch = new BinarySearchTree()
@@ -100,3 +110,4 @@ console.log("$$$$$$$",treeSearch.search(treeSearch.root,5));
 console.log("$$$$$$$",treeSearch.search(treeSearch.root,15));
 
 treeSearch.preOrder(treeSearch.root) // expected o/p is 10,5,3,7,15
+treeSearch.inOrder(treeSearch.root) // expected o/p is 3,5,7,10,15
