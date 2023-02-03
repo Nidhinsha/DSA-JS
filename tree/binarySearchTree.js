@@ -125,6 +125,58 @@ class BinarySearchTree{
             }
         }
     }
+    // find the min value of the tree to find that use the left of the tree
+    // because smallest elemnt always in left of tree
+    min(root){
+        if (!root.left) {
+            return root.value
+        }else{
+            return this.min(root.left)
+        }
+    }
+    // opps. of min
+    max(root){
+        if (!root.right) {
+            return root.value
+        }else{
+            return this.max(root.right)
+        }
+    }
+    delete(value){
+        this.root = this.deleteNode(this.root,value)
+        console.log(this.root,value,'delete node called################');
+    }
+    deleteNode(root,value){
+        console.log(root,value,'the root and value to delete');
+        if(root===null){
+            return root
+        }
+        if (value < root.value) {
+            root.left = this.deleteNode(root.left,value)
+            console.log(root.left,value,'value < root-value ################');
+        }else if(value > root.value){
+            root.right = this.deleteNode(root.right,value)
+            console.log(root.right,value,'value > root-value ################');
+        }else{
+            if(!root.left && !root.right ){
+                console.log("when both left and right null for leaf elelment");
+                return null
+            }
+            if(!root.left){
+                console.log(root.left,'when !root.left');
+                return root.right
+            }else if(!root.right){
+                console.log(root.right,'when !root.right');
+                return root.left
+            }
+            root.value = root.min(root.right)
+            console.log(root.value ,'min value');
+            console.log(root.right,root.value,'deletenode again claiing');
+            root.right = root.deleteNode(root.right,root.value)
+            console.log(root.right,'last line of delete');
+        }
+        return root
+    }
 }
 
 const treeSearch = new BinarySearchTree()
@@ -133,15 +185,25 @@ treeSearch.insert(10)
 treeSearch.insert(5)
 treeSearch.insert(15)
 treeSearch.insert(3)
-treeSearch.insert(7)
+// treeSearch.insert(7)
 
-console.log("$$$$$$$",treeSearch.search(treeSearch.root,10));
-console.log("$$$$$$$",treeSearch.search(treeSearch.root,5));
-console.log("$$$$$$$",treeSearch.search(treeSearch.root,15));
+// console.log("$$$$$$$",treeSearch.search(treeSearch.root,10));
+// console.log("$$$$$$$",treeSearch.search(treeSearch.root,5));
+// console.log("$$$$$$$",treeSearch.search(treeSearch.root,15));
 
-treeSearch.preOrder(treeSearch.root) // expected o/p is 10,5,3,7,15
-treeSearch.inOrder(treeSearch.root) // expected o/p is 3,5,7,10,15
-treeSearch.postOrder(treeSearch.root) // expected o/p is 3,7,5,15,10
+// treeSearch.preOrder(treeSearch.root) // expected o/p is 10,5,3,7,15
+// treeSearch.inOrder(treeSearch.root) // expected o/p is 3,5,7,10,15
+// treeSearch.postOrder(treeSearch.root) // expected o/p is 3,7,5,15,10
 
 // BFS traversal 
 treeSearch.levelOrder()
+
+// delete 3 
+treeSearch.delete(3)
+
+treeSearch.levelOrder()
+
+// min
+// console.log(treeSearch.min(treeSearch.root));
+// max
+// console.log(treeSearch.max(treeSearch.root));
