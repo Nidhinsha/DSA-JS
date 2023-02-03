@@ -105,6 +105,26 @@ class BinarySearchTree{
             console.log(root.value);
         }
     }
+    // BFS Traversal Approach
+    levelOrder(){
+        // use the optimized technique with linkedList
+        const queue = []
+        queue.push(this.root)
+        while (queue.length) {
+            let current = queue.shift()
+            console.log("!",current.value);
+            if (current.left) {
+                // console.log("::::::::::current.left",current.left);
+                queue.push(current.left)
+                // console.log(":::::::::: After left Push",current.left);
+            }
+            if (current.right) {
+                // console.log("{{{{{{{{{{{{{ current.right",current.right);
+                queue.push(current.right)
+                // console.log("{{{{{{{{{{{{{ after right push",current.right);
+            }
+        }
+    }
 }
 
 const treeSearch = new BinarySearchTree()
@@ -122,3 +142,6 @@ console.log("$$$$$$$",treeSearch.search(treeSearch.root,15));
 treeSearch.preOrder(treeSearch.root) // expected o/p is 10,5,3,7,15
 treeSearch.inOrder(treeSearch.root) // expected o/p is 3,5,7,10,15
 treeSearch.postOrder(treeSearch.root) // expected o/p is 3,7,5,15,10
+
+// BFS traversal 
+treeSearch.levelOrder()
