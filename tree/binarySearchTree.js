@@ -64,6 +64,7 @@ class BinarySearchTree{
         } else {
             if (root.value === value) {
                 // console.log(root.value,value,"********element is in root");
+                // return root.right.value this one for the task to display the close value to the searched element
                 return true
             }else if(value < root.value){
                 // console.log(value,root.value,"********the value < root");
@@ -144,36 +145,36 @@ class BinarySearchTree{
     }
     delete(value){
         this.root = this.deleteNode(this.root,value)
-        console.log(this.root,value,'delete node called################');
+        // console.log(this.root,value,'delete node called################');
     }
     deleteNode(root,value){
-        console.log(root,value,'the root and value to delete');
+        // console.log(root,value,'the root and value to delete');
         if(root===null){
             return root
         }
         if (value < root.value) {
             root.left = this.deleteNode(root.left,value)
-            console.log(root.left,value,'value < root-value ################');
+            // console.log(root.left,value,'value < root-value ################');
         }else if(value > root.value){
             root.right = this.deleteNode(root.right,value)
-            console.log(root.right,value,'value > root-value ################');
+            // console.log(root.right,value,'value > root-value ################');
         }else{
             if(!root.left && !root.right ){
-                console.log("when both left and right null for leaf elelment");
+                // console.log("when both left and right null for leaf elelment");
                 return null
             }
             if(!root.left){
-                console.log(root.left,'when !root.left');
+                // console.log(root.left,'when !root.left');
                 return root.right
             }else if(!root.right){
-                console.log(root.right,'when !root.right');
+                // console.log(root.right,'when !root.right');
                 return root.left
             }
             root.value = root.min(root.right)
-            console.log(root.value ,'min value');
-            console.log(root.right,root.value,'deletenode again claiing');
+            // console.log(root.value ,'min value');
+            // console.log(root.right,root.value,'deletenode again claiing');
             root.right = root.deleteNode(root.right,root.value)
-            console.log(root.right,'last line of delete');
+            // console.log(root.right,'last line of delete');
         }
         return root
     }
@@ -187,7 +188,7 @@ treeSearch.insert(15)
 treeSearch.insert(3)
 // treeSearch.insert(7)
 
-// console.log("$$$$$$$",treeSearch.search(treeSearch.root,10));
+console.log("$$$$$$$",treeSearch.search(treeSearch.root,10));
 // console.log("$$$$$$$",treeSearch.search(treeSearch.root,5));
 // console.log("$$$$$$$",treeSearch.search(treeSearch.root,15));
 
@@ -199,9 +200,9 @@ treeSearch.insert(3)
 treeSearch.levelOrder()
 
 // delete 3 
-treeSearch.delete(3)
+// treeSearch.delete(3)
 
-treeSearch.levelOrder()
+// treeSearch.levelOrder()
 
 // min
 // console.log(treeSearch.min(treeSearch.root));
