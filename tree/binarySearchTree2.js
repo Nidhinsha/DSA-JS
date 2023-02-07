@@ -18,7 +18,7 @@ class BinarySearchTree2{
         if (this.isEmpty()) {
             this.root = newNode
         } else {
-            this.insertNode(this.root, value)
+            this.insertNode(this.root, newNode)
         }
     }
     insertNode(root,newNode){
@@ -29,7 +29,7 @@ class BinarySearchTree2{
                 this.insertNode(root.left, newNode)
             }
         } else {
-            if (root.right === null) {
+            if (root.right == null) {
                 root.right = newNode
             } else {
                 this.insertNode(root.right,newNode)
@@ -75,7 +75,7 @@ class BinarySearchTree2{
         queue.push(this.root)
         while (queue.length) {
             let current = queue.shift()
-            console.log("!",current);
+            console.log("!",current.value);
             if (current.left) {
                 queue.push(current.left)
             }
@@ -124,8 +124,30 @@ class BinarySearchTree2{
         }
         return root
     }
+    findClosest(target){
+        let current = this.root
+        let closest = current.value
+        while (current != null) {
+            if (Math.abs(target-closest)> Math.abs(target - current.value)) {
+                closest = current.value
+            }
+            if(target < current.value){
+                current = current.left
+            }else if(target > current.value){
+                current = current.right
+            }else{
+                break
+            }
+        }
+        return closest
+    }
 }
 
 const BST = new BinarySearchTree2()
 BST.insert(10)
-BST.insert(20)
+BST.insert(8)
+BST.insert(11)
+BST.insert(4)
+BST.insert(9)
+// BST.levelOrder()
+console.log(BST.findClosest(12));

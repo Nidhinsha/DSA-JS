@@ -78,11 +78,11 @@ class BinarySearchTree{
 
     preOrder(root){
         if (root) {
-            // console.log(root.value,"!!!!!!!!!!!!!!!!!!! preorder root")
+            console.log(root.value,"!!!!!!!!!!!!!!!!!!! preorder root")
             console.log(root.value);
-            // console.log(root.left,"!!!!!!!!!!!!!!!!!!! preorder left");
+            console.log(root.left,"!!!!!!!!!!!!!!!!!!! preorder left");
             this.preOrder(root.left)
-            // console.log(root.right,"!!!!!!!!!!!!!!!!!!! preorder right");
+            console.log(root.right,"!!!!!!!!!!!!!!!!!!! preorder right");
             this.preOrder(root.right)
         }
     }
@@ -186,13 +186,13 @@ treeSearch.insert(10)
 treeSearch.insert(5)
 treeSearch.insert(15)
 treeSearch.insert(3)
-// treeSearch.insert(7)
+treeSearch.insert(7)
 
 console.log("$$$$$$$",treeSearch.search(treeSearch.root,10));
 // console.log("$$$$$$$",treeSearch.search(treeSearch.root,5));
 // console.log("$$$$$$$",treeSearch.search(treeSearch.root,15));
 
-// treeSearch.preOrder(treeSearch.root) // expected o/p is 10,5,3,7,15
+treeSearch.preOrder(treeSearch.root) // expected o/p is 10,5,3,7,15
 // treeSearch.inOrder(treeSearch.root) // expected o/p is 3,5,7,10,15
 // treeSearch.postOrder(treeSearch.root) // expected o/p is 3,7,5,15,10
 
