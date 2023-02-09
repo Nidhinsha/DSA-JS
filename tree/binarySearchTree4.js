@@ -66,7 +66,9 @@ class BinarySearchTree4{
             }
 
             root.value = this.min(root.right)
+            root.right = this.deleteNode(root.right,root.value)
         }
+        return root
     }
     preOrder(root){
         if (root) {
