@@ -170,10 +170,10 @@ class BinarySearchTree{
                 // console.log(root.right,'when !root.right');
                 return root.left
             }
-            root.value = root.min(root.right)
+            root.value = this.min(root.right)
             // console.log(root.value ,'min value');
             // console.log(root.right,root.value,'deletenode again claiing');
-            root.right = root.deleteNode(root.right,root.value)
+            root.right = this.deleteNode(root.right,root.value)
             // console.log(root.right,'last line of delete');
         }
         return root
@@ -182,13 +182,13 @@ class BinarySearchTree{
 
 const treeSearch = new BinarySearchTree()
 console.log("The tree is ",treeSearch.isEmpty());
-treeSearch.insert(10)
-treeSearch.insert(5)
-treeSearch.insert(15)
-treeSearch.insert(3)
-treeSearch.insert(7)
+treeSearch.insert(20)
+treeSearch.insert(40)
+treeSearch.insert(30)
+treeSearch.insert(2)
+// treeSearch.insert(7)
 
-console.log("$$$$$$$",treeSearch.search(treeSearch.root,10));
+// console.log("$$$$$$$",treeSearch.search(treeSearch.root,10));
 // console.log("$$$$$$$",treeSearch.search(treeSearch.root,5));
 // console.log("$$$$$$$",treeSearch.search(treeSearch.root,15));
 
@@ -200,9 +200,11 @@ treeSearch.preOrder(treeSearch.root) // expected o/p is 10,5,3,7,15
 treeSearch.levelOrder()
 
 // delete 3 
-// treeSearch.delete(3)
+console.log(treeSearch.delete(3));
+// console.log(treeSearch.delete(10));
+// console.log(treeSearch.delete(15));
 
-// treeSearch.levelOrder()
+treeSearch.levelOrder()
 
 // min
 // console.log(treeSearch.min(treeSearch.root));

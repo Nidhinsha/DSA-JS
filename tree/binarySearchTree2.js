@@ -150,4 +150,4 @@ BST.insert(11)
 BST.insert(4)
 BST.insert(9)
 // BST.levelOrder()
-console.log(BST.findClosest(12));
+// console.log(BST.findClosest(12));
