@@ -21,8 +21,15 @@ class minHeap3{
 }
 
 const heap = new minHeap3()
-heap.insert(9)
-heap.insert(9)
-heap.insert(6)
-heap.insert(70)
+// heap.insert(9)
+// heap.insert(9)
+// heap.insert(6)
+// heap.insert(70)
+const heapArr = [null, 10, 20, 30, 25, 5, 40, 35];
+  
+  let limit = 7;
+  
+  for (let i = 2; i < heapArr.length; i++) {
+    heap.insert(heapArr[i]);
+  }
 console.log(heap.heap);
