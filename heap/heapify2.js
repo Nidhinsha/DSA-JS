@@ -64,6 +64,5 @@ class HeapSort {
   // example usage
   let array = [8, 4, 7, 1, 3, 5];
   let heap = new HeapSort(array);
-  document.getElementById("before").innerHTML = `Array before: ${array}`;
-  document.getElementById("after").innerHTML = `Array after: ${heap.sort()}`;
+console.log(heap.sort());
   
