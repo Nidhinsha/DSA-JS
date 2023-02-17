@@ -35,15 +35,15 @@ class HeapSort3{
         for (let i = Math.floor(length/2)-1 ; i >=0; i-- ){
            this.heapify(this.array,i,length)
         }
-        for (let i = length-1; i >=0; i--) {
-            this.swap(this.array,0,i)
-            this.heapify(this.array,0,i)
+        // for (let i = length-1; i >=0; i--) {
+        //     this.swap(this.array,0,i)
+        //     this.heapify(this.array,0,i)
             
-        }
+        // }
         return this.array
     }
 }
 
-let array = [8,4,7,1,3,5]
+let array = [4,2,5,7,3,7,32,4]
 let heap = new HeapSort3(array)
 console.log(heap.sort());

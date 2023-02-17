@@ -182,10 +182,10 @@ class BinarySearchTree{
 
 const treeSearch = new BinarySearchTree()
 console.log("The tree is ",treeSearch.isEmpty());
-treeSearch.insert(20)
-treeSearch.insert(40)
-treeSearch.insert(30)
-treeSearch.insert(2)
+treeSearch.insert(34)
+treeSearch.insert(4)
+treeSearch.insert(3)
+treeSearch.insert(67)
 // treeSearch.insert(7)
 
 // console.log("$$$$$$$",treeSearch.search(treeSearch.root,10));
@@ -197,10 +197,10 @@ treeSearch.preOrder(treeSearch.root) // expected o/p is 10,5,3,7,15
 // treeSearch.postOrder(treeSearch.root) // expected o/p is 3,7,5,15,10
 
 // BFS traversal 
-treeSearch.levelOrder()
+// treeSearch.levelOrder()
 
 // delete 3 
-console.log(treeSearch.delete(3));
+// console.log(treeSearch.delete(3));
 // console.log(treeSearch.delete(10));
 // console.log(treeSearch.delete(15));
 

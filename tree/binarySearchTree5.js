@@ -61,9 +61,9 @@ class BinarySearchTree5{
 }
 
 const bst = new BinarySearchTree5()
-bst.insert(5)
+bst.insert(34)
+bst.insert(4)
 bst.insert(3)
-bst.insert(90)
-bst.insert(2)
+bst.insert(67)
 
 bst.preOrder(bst.root)

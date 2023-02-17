@@ -36,6 +36,14 @@ class BinarySearchTree2{
             }
         }
     }
+    complete(root){
+        if(root){
+            // if(!root.left && !root.right){
+
+            // }
+            this.complete(root.left)
+        }
+    }
     search(root,value){
         if (!root) {
             return false
