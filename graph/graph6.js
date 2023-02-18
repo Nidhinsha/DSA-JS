@@ -28,6 +28,12 @@ class graph6{
             console.log(vertex+" "+[...this.adjencyList[vertex]]);
         }
     }
+    bfs(startingNode){
+       const visited = new Map()
+       const stack = [startingNode]
+       const resulst = []
+       visited.set(startingNode)
+    }
 }
 const myGraph6 = new graph6()
 myGraph6.addVertex("A")
@@ -35,4 +41,5 @@ myGraph6.addVertex("B")
 myGraph6.addVertex("C")
 
 myGraph6.addEdge("A","C")
-myGraph6.display()
+// myGraph6.display()
+console.log(myGraph6.bfs("A"));
