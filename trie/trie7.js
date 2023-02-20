@@ -1,7 +1,7 @@
 class Node{
     constructor(){
         this.keys = new Map()
-        this.end= false
+        this.end = false
     }
     setEnd(){
         this.end = true
@@ -10,18 +10,16 @@ class Node{
         return this.end
     }
 }
-
 class Trie7{
     constructor(){
         this.root = new Node()
     }
     add(input,node = this.root){
-        if(input.length ===0){
+        if (input.length == 0) {
             node.setEnd()
             return
-        }
-        if (!node.keys.has(input[0])) {
-            node.keys.set(input[0], new Node())
+        }else if (!node.keys.has(input[0])) {
+            node.keys.set(input[0],new Node())
             return this.add(input.substr(1),node.keys.get(input[0]))
         }else{
             return this.add(input.substr(1),node.keys.get(input[0]))
@@ -38,42 +36,40 @@ class Trie7{
             }
         }
         return (
-            node.keys.has(word) && node.keys.get(word[0]).isEnd()
+            node.keys.has(word) && 
+            node.keys.get(word).isEnd()
         )
     }
     print(){
         let word = new Array()
-        function search(node = this.root,string){
+        function search(node = this.root,string) {
             if (node.keys.size != 0) {
-                for (let letter of node.keys.keys()) {
+                for (const letter of node.keys.keys()) {
                     search(node.keys.get(letter),string.concat(letter))
                 }
-
-                if(node.isEnd()){
+                if (node.isEnd()) {
                     word.push(string)
                 }
-            }else{
+            } else {
                 string.length > 0 ? word.push(string) : undefined
                 return
             }
         }
-        search(this.root,new String)
-        return word.length >1 ? word : null
+        search(this.root,new String())
+        return word.length > 0 ? word : null
     }
 }
 
-const myTrie7 = new Trie7()
-myTrie7.add('ball')
-myTrie7.add('bat')
-myTrie7.add('doll')
-myTrie7.add('dork')
-myTrie7.add('do')
-myTrie7.add('dorm')
-myTrie7.add('send')
-myTrie7.add('sense')
-myTrie7.add('hello')
-
-console.log(myTrie7.isWord('doll'));
-console.log(myTrie7.isWord('dor'));
-console.log(myTrie7.isWord('dorf'));
-console.log(myTrie7.print());
+const myTrie = new Trie7()
+myTrie.add('ball')
+myTrie.add('bat')
+myTrie.add('doll')
+myTrie.add('dork')
+myTrie.add('do')
+myTrie.add('dorm')
+myTrie.add('send')
+myTrie.add('sense')
+myTrie.add('hello')
+console.log(myTrie.isWord('doll'));
+console.log(myTrie.isWord('dor'));
+console.log(myTrie.isWord('dorf'));
