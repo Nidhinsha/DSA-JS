@@ -36,6 +36,18 @@ class heightOfTree{
             }
         }
     }
+    countNodesWithTwoOrMoreChildren(root){
+        
+        if (root === null) {
+            console.log('[');
+            return 0;
+          }
+          let count = 0;
+          if (root.left != null && root.right != null) {
+            count = 1;
+          }
+          return count + this.countNodesWithTwoOrMoreChildren(root.left) + this.countNodesWithTwoOrMoreChildren(root.right);
+    }
     preOrder(root){
         if (root) {
             console.log(root.value);
@@ -55,11 +67,12 @@ class heightOfTree{
 }
 
 const height = new heightOfTree()
-height.insert(20)
-height.insert(40)
-height.insert(2)
-height.insert(12)
+height.insert(1)
+height.insert(9)
+height.insert(3)
 height.insert(4)
-height.insert(57)
+height.insert(5)
+height.insert(6)
 height.preOrder(height.root)
 console.log(height.maxDepth(height.root)+" depth");
+console.log(height.countNodesWithTwoOrMoreChildren(height.root));

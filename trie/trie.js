@@ -17,7 +17,6 @@ class Trie {
     constructor() {
         this.root = new Node()
     }
-
     add(input, node = this.root) {
         if (input.length == 0) {
             node.setEnd()
