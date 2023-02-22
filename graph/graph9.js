@@ -59,6 +59,25 @@ class Graph9{
             console.log(queue.shift());
         }
     }
+    currentEdge(vertex){
+        let arr = []
+        if (!this.adjList[vertex]) {
+            return null
+        }else{
+            for (const edge of this.adjList[vertex]) {
+                arr.push(edge)
+            }
+            for (let i = 0; i < arr.length; i++) {
+                if (Number.isInteger(arr[i])) {
+                    console.log(arr[i],true);
+                } else {
+                    console.log(arr[i],'false');
+                }
+                
+            }
+        }
+    }
+   
 }
 
 const graph = new Graph9();
@@ -79,7 +98,9 @@ graph.addEdge("4", "3");
 graph.addEdge("5", "4");
 graph.addEdge("5", "3");
 graph.addEdge("6", "5");
-graph.addEdge("7", "5");
+graph.addEdge(7, "5");
 
 console.log(graph.dfs("1"));
 graph.bfs("1")
+
+graph.currentEdge(7)

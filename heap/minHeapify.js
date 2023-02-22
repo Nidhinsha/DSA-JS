@@ -5,7 +5,29 @@ function heapify(arr) {
     for (let i = Math.floor(n/2) - 1; i >= 0; i--) {
       heapifySubtree(arr, i, n);
     }
+    return arr
   }
+  function isPrime(n){
+    if (n < 2) {
+      return false;
+    }
+    for (let i = 2; i <= Math.sqrt(n); i++) {
+      if (n % i === 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+  function findPrimesInHeap(heap){
+    const primes = [];
+    for (let num of heap) {
+      if (isPrime(num)) {
+        primes.push(num);
+      }
+    }
+    return primes;
+  }
+  
   
   function heapifySubtree(arr, i, n) {
     let smallest = i;
@@ -31,6 +53,9 @@ function heapify(arr) {
     }
   }
 
-  let arr = [5, 2, 8, 1, 9, 4];
+  let arr = [5, 7, 10, 12, 13, 15, 17];
 heapify(arr);
 console.log(arr);
+
+const primesInHeap = findPrimesInHeap(arr);
+console.log(primesInHeap); // Output: [5, 7, 13, 17]

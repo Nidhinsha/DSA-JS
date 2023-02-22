@@ -97,6 +97,19 @@ class isCompleteBT{
             }
         }
     }
+    countSubtrees() {
+        return this.countSubtreesHelper(this.root);
+      }
+    
+      countSubtreesHelper(node) {
+        if (node === null) {
+          return 0;
+        } else {
+          const leftCount = this.countSubtreesHelper(node.left);
+          const rightCount = this.countSubtreesHelper(node.right);
+          return 1 + leftCount + rightCount;
+        }
+      }
 }
 const cBt = new isCompleteBT()
 cBt.insert(1)
