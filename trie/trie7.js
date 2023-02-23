@@ -58,6 +58,47 @@ class Trie7{
         search(this.root,new String())
         return word.length > 0 ? word : null
     }
+    suggestHelper(root, list, curr) {
+        // If the current node represents the end of a word, add the current prefix to the result list.
+        if (root.isWord) {
+          list.push(curr);
+        }
+    
+        // If the current node has no children, return.
+        if (!Object.keys(root.children).length) {
+          return;
+        }
+    
+        // Recursively call suggestHelper on each child node with the updated prefix.
+        for (let child in root.children) {
+          this.suggestHelper(root.children[child], list, curr + child);
+        }
+      }
+    
+      suggest(prefix) {
+       
+        let node = this.root;
+    
+        let curr = "";
+    
+        for (let i = 0; i < prefix.length; i++) {
+        
+          if (!node.children[prefix[i]]) {
+            return [];
+          }
+    
+          node = node.children[prefix[i]];
+    
+          curr += prefix[i];
+        }
+    
+       
+        let list = [];
+        this.suggestHelper(node, list, curr);
+    
+        return list;
+      
+    }
 }
 
 const myTrie = new Trie7()

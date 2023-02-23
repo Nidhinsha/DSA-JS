@@ -39,7 +39,7 @@ class isCompleteBT{
     }
     
     countNodesWithTwoOrMoreChildren(root){
-        
+        // we can find with full concept
         if (root === null) {
             console.log('[');
             return 0;
@@ -63,7 +63,7 @@ class isCompleteBT{
 
             if (current.left != null) {
                 if (flag == true) {
-                    return true
+                    return false
                 }
                 queue.push(current.left)
             }else{
@@ -110,6 +110,15 @@ class isCompleteBT{
           return 1 + leftCount + rightCount;
         }
       }
+      maxDepth(root){
+        if (root == null) {
+            return 0
+        }else{
+            let leftDepth = this.maxDepth(root.left)
+            let rightDepth = this.maxDepth(root.right)
+            return Math.max(leftDepth,rightDepth)+1
+        }
+    }
 }
 const cBt = new isCompleteBT()
 cBt.insert(1)
